@@ -1,0 +1,28 @@
+{
+  "name": "angular-webpack-ie8",
+  "version": "1.0.0",
+  "description": "this angular webpack to ie8",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist",
+    "build:client": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build": "npm run clean && npm run build:client",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "author": "caitianxu",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.5.1",
+    "cross-env": "^5.1.4",
+    "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.2"
+  },
+  "dependencies": {}
+}
