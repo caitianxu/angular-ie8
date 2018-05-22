@@ -1,0 +1,18 @@
+<div class="index-page">
+  <div class="header-form">
+    <form ng-submit="submitTask()">
+      <input type="text" ng-model="param.taskName"/>
+    </form>
+  </div>
+  <div class="data-title">
+    <a ng-class="{'active':param.type === null}" ng-click="param.type = null">全部</a>
+    <a ng-class="{'active':param.type === 0}" ng-click="param.type = 0">进行中</a>
+    <a ng-class="{'active':param.type === 1}" ng-click="param.type = 1">已完成</a>
+  </div>
+  <ul class="data-list">
+    <li ng-repeat="item in dataList.slice().reverse() | filter:myFilter" ng-class="{'end': item.state == 1}">
+      <a ng-bind="item.title" ng-click="item.state = 1" href="#/info/{{item.id+'&'+item.title}}"></a>
+      <label>{{item.state == 0 ? "未阅读" : "已阅读"}}</label>
+    </li>
+  </div>
+</div>

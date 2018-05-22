@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <title>webpack-angular-ie8</title>
+  <link href="./images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <script src="./lib/angular.min.js"></script>
+  <script src="./lib/angular-ui-router.min.js"></script>
+  <script src="./lib/ocLazyLoad.min.js"></script>
+  <script src="./lib/jquery.min.js"></script>
+  <!--[if lte IE 8]>
+  <script>
+    window.noop=function(){};window.console=window.console||{log:window.noop,debug:window.noop,info:window.noop,warn:window.noop,exception:window.noop,assert:window.noop,dir:window.noop,dirxml:window.noop,trace:window.noop,group:window.noop,groupCollapsed:window.noop,groupEnd:window.noop,profile:window.noop,profileEnd:window.noop,count:window.noop,clear:window.noop,time:window.noop,timeEnd:window.noop,timeStamp:window.noop,table:window.noop,error:window.noop};
+  </script>
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="./lib/html5.js"></script>
+    <script src="./lib/css3-mediaqueries.js"></script>
+  <![endif]-->
+</head>
+
+<body id="ng-app" ng-app="app" ng-controller="mainController">
+  <div class="ui-view parent-main-page"></div>
+</body>
+
+</html>

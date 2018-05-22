@@ -1,26 +1,28 @@
 {
-  "name": "angular-webpack-ie8",
+  "name": "webpack-angular-ie8",
   "version": "1.0.0",
-  "description": "this angular webpack to ie8",
+  "description": "this is webpack-angular-ie8 prj demo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist",
-    "build:client": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build:client": "cross-env NODETYPE=1 webpack --config webpack.config.js",
     "build": "npm run clean && npm run build:client",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js"
+    "dev": "cross-env NODETYPE=0 webpack-dev-server --config webpack.config.js"
   },
+  "author": "Henry.Cai",
+  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "none"
+    "url": "www.baidu.com"
   },
-  "author": "caitianxu",
-  "license": "ISC",
   "devDependencies": {
     "copy-webpack-plugin": "^4.5.1",
-    "cross-env": "^5.1.4",
+    "cross-env": "^5.1.5",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^3.2.0",
     "rimraf": "^2.6.2",
+    "style-loader": "^0.21.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.2"
   },
