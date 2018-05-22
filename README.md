@@ -1,30 +1,32 @@
 # box-web
  
-*为兼容IE8 angularjs 降级使用最后一个兼容IE8的版本。 如无特殊功能要求， 工程中无需加载jQuery使用。
-*jQuery在index.html引用， 如需要可以打开代码注释
+*为兼容IE8 angularjs 降级使用最后一个兼容IE8的版本。 
+*如需要使用jQuery，lib目录下的jQuery也为兼容IE8的版本。
 
 ## 目录结构
 
 ```
-src                 主目录
+src   主目录
     - iamges 静态资源文件
     - js 核心模块
     - json 模拟接口文件
     - lib 静态引用的框架和组件
-    - lib 业务模块
-    - loginCallback.html 第三方登录回调页面
-    - style.css 公共样式文件
+    - views 业务模块
+    - public.css 公共样式文件
+    - reset.css 网页重置样式文件
+    - main.js webpack工程入口文件
+    - main.html html模版文件
 
-config
-    - main.js  开发环境代理地址    
-    - main.html 生成主页面模版
+dist 生产内容
+
+webpack.config.js  工程配置文件
 ```
 
 
 ### 安装
 
 ```
-npm install 
+npm i 
 ```
 
 ### 开发
@@ -42,8 +44,6 @@ npm run build
 ### 发布部署
 
 ```
-测试环境：`build` 之后将 `dist` 中的内容完全拷贝到SVN发布目录中
-https://svn-repo.stnts.com/repo/lolbox/frontend/trunk/box-web
+dev 开发模式可直接在现代浏览器中运行， IE8中可以先编译然后运行dist/index.html文件
 
-真实环境：
 ```
