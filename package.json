@@ -13,7 +13,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "www.baidu.com"
+    "url": "git@github.com:caitianxu/angular-ie8.git"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^4.5.1",
