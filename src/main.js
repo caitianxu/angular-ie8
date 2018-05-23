@@ -1,5 +1,5 @@
-require('./reset.css')
-require('./public.css')
+require('./css/reset.css')
+require('.//css/public.css')
 require('./js/app.js')
 require('./js/app_directive.js')
 require('./js/app_servers.js')

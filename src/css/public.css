@@ -1,0 +1,230 @@
+.parent-main-page {
+  width: 600px;
+  margin: 0px auto;
+  background: #f5f8fa;
+}
+
+/*pop*/
+.ng-pop {
+  position: fixed;
+  top: 0;
+  z-index: 99999999;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.ng-pop-bg {
+  position: static;
+  width: 100%;
+  height: 100%;
+  background-color: #111111;
+  background: rgba(17, 17, 17, 0.3);
+  filter: alpha(opacity=30);
+}
+
+.ng-pop-content {
+  box-shadow: 1px 1px 50px rgba(17, 17, 17, 0.3);
+  width: 260px;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  margin-left: -130px;
+  margin-top: -150px;
+  position: absolute;
+}
+
+.ng-pop-title {
+  padding: 0 0 0 20px;
+  height: 42px;
+  line-height: 42px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+  overflow: hidden;
+  background-color: #F8F8F8;
+  border-radius: 2px 2px 0 0;
+}
+
+.ng-pop-text {
+  position: relative;
+  padding: 20px;
+  line-height: 24px;
+  word-break: break-all;
+  overflow: hidden;
+  font-size: 14px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.ng-pop-action {
+  margin-bottom: 15px;
+  text-align: right;
+  padding-right: 15px;
+}
+
+.btn {
+  height: 28px;
+  line-height: 28px;
+  padding: 0 15px;
+  border: 1px #dedede solid;
+  font-weight: 400;
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 5px 5px 0 5px;
+  border-color: #1E9FFF;
+  background-color: #1E9FFF;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  border-color: #1296db;
+  background-color: #1296db;
+}
+
+.ng-pop-close {
+  width: 42px;
+  height: 42px;
+  float: right;
+  font-size: 18px;
+  color: #999;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.ng-pop-close:hover{
+  color: #333;
+}
+
+.btn-default {
+  border: 1px #dedede solid;
+  background-color: #ffffff;
+  color: #333;
+}
+.btn-default:hover{
+  background-color: #f4f4f4;
+  border-color: #ccc;
+  color: #111;
+}
+
+/*dialog*/
+.ng-dialog{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: 1000;
+}
+.ng-dialog-bg {
+  position: static;
+}
+.ng-dialog-bg-color{
+  width: 100%;
+  height: 100%;
+  background-color: #111111;
+  background: rgba(17, 17, 17, 0.3);
+  filter: alpha(opacity=30);
+}
+.ng-dialog-plan{
+  box-shadow: 1px 1px 5px rgba(17, 17, 17, 0.2);
+  min-width: 200px;
+  min-height: 100px;
+  background-color: #fff;
+  position: absolute;
+  border: 1px #d5d5d5 solid;
+  border-radius: 2px;
+}
+.ng-dialog-title{
+  float: left;
+  width: 100%;
+  height: 45px;
+  background-color: #F8F8F8;
+  border-bottom:1px #e5e5e5 solid; 
+  padding: 0 10px 0 20px;
+  line-height: 45px;
+  color: #333;
+}
+.ng-dialog-title > label{
+  float: left;
+  max-width: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ng-dialog-action{
+  float: left;
+  width: 100%;
+  height: 55px;
+  background-color: #fff;
+  border-top:1px #e5e5e5 solid; 
+  padding: 8px 20px;
+  text-align: right;
+}
+.ng-dialog-content{
+  position: relative;
+  overflow: hidden;
+  float: left;
+  width: 100%;
+  background-color: #eee;
+}
+.ng-dialog-title ul{
+  float: right;
+}
+.ng-dialog-title ul li{
+  float: left;
+  width: 40px;
+  padding:  0 5px;
+  height: 45px;
+  line-height: 45px;
+  text-align: right
+}
+.ng-dialog-title ul li .iconfont{
+  cursor: pointer;
+  font-size: 20px;
+  color: #777;
+  width: 30px;
+}
+.ng-dialog-title ul li .iconfont:hover{
+  color: #1E9FFF;
+}
+/*iconfont*/
+.iconfont{
+  background-image: url('/images/all.png');
+  background-repeat: no-repeat;
+  min-width: 30px;
+  height: 100%;
+  display: inline-block;
+}
+.icon-close{
+  background-position: -185px -63px;
+}
+.icon-close:hover{
+  background-position: -128px -63px;
+}
+.icon-shrink{
+  background-position: -295px -8px;
+}
+.icon-shrink:hover{
+  background-position: -239px -8px;
+}
+.icon-minus{
+  background-position: -71px -3px;
+}
+.icon-minus:hover{
+  background-position: -13px -2px;
+}
+.icon-arrawsalt{
+  background-position: -295px -63px;
+}
+.icon-arrawsalt:hover{
+  background-position: -239px -63px;
+}
+.icon-block{
+  background-position: -71px -65px;
+}
+.icon-block:hover{
+  background-position: -14px -65px;
+}

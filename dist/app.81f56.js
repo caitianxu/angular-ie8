@@ -1,3 +1,123 @@
+webpackJsonp([0],[
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(1)
+__webpack_require__(2)
+__webpack_require__(3)
+__webpack_require__(4)
+__webpack_require__(5)
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+window.myApp = angular.module("app", ["myDirectives", "myServices", "oc.lazyLoad", "ui.router"]);
+myApp.run(["$rootScope", "services", "$sce", "pop",
+  function ($rootScope, services, $sce, pop) {
+    console.log('run')
+    //自定义组件
+    $rootScope.pop = pop;
+    //全局公共变量
+    $rootScope.isPro = true;
+    $rootScope.ctxPath =  true ? '' : '';
+    $rootScope.token = null;
+    $rootScope.uid = null;
+    $rootScope.LoginUser = null;
+    //开始加载新页面
+    $rootScope.$on("$stateChangeStart", function (event, toState, fromState, fromParams) {
+      console.log('load success:' + toState.name)
+    });
+    //页面加载成功
+    $rootScope.$on("$stateChangeSuccess", function (event, toState, toParams, fromState, fromParams) {});
+    //页面加载失败
+    $rootScope.$on("$stateChangeError", function (event, toState, toParams, fromState, fromParams, error) {});
+  }
+]);
+
+//主控制器
+myApp.controller("mainController", [
+  "$rootScope",
+  "$scope",
+  "services",
+  "$sce",
+  "$state",
+  "$timeout",
+  function ($rootScope, $scope, services, $sce, $state, $timeout) {
+    console.log('main')
+  }
+]);
+
+//路由配置
+myApp.config(function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
+  console.log('config')
+  myApp.controller = $controllerProvider.register;
+  myApp.directive = $compileProvider.directive;
+  myApp.filter = $filterProvider.register;
+  myApp.factory = $provide.factory;
+  myApp.service = $provide.service;
+  myApp.constant = $provide.constant;
+
+  //默认页面
+  $urlRouterProvider.when("", "/index");
+  //不规则页面
+  $urlRouterProvider.otherwise("/error");
+  //首页
+  $stateProvider.state("index", {
+    url: "/index",
+    templateUrl: "./views/index/page.html",
+    controller: "indexController",
+    resolve: {
+      loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
+        return $ocLazyLoad.load([
+          "./views/index/page.css",
+          "./views/index/page.js"
+        ])
+      }]
+    }
+  });
+  //详情页
+  $stateProvider.state("info", {
+    url: "/info/:id&:name",
+    templateUrl: "./views/info/page.html",
+    controller: "infoController",
+    resolve: {
+      loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
+        return $ocLazyLoad.load([
+          "./views/info/page.css",
+          "./views/info/page.js"
+        ])
+      }]
+    }
+  });
+  //错误页
+  $stateProvider.state("error", {
+    url: "/error",
+    templateUrl: "./views/error/page.html",
+    resolve: {
+      loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
+        return $ocLazyLoad.load(["./views/error/page.css"])
+      }]
+    }
+  });
+});
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
 angular.module('myDirectives', [])
   .directive('pop', function () {
     return {
@@ -235,3 +355,58 @@ angular.module('myDirectives', [])
       }
     }
   })
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+angular.module("myServices", []).factory('services', ['$http', '$rootScope', function ($http, $rootScope) {
+  /**
+   * 服务端请求模板
+   * @param url 服务端请求url
+   * @param param 请求参数
+   * @param ajaxType post\get,默认是post
+   */
+  var serverAction = $rootScope.serverAction = function (url, param, type) {
+    param = param ? param : {};
+    type = type || 'GET';
+    param['uid'] = $rootScope.uid;
+    param['token'] = $rootScope.token;
+    if (type == "GET") {
+      if (typeof param === 'object') {
+        url = url + "?" + $.param(param);
+      }
+      return $http.get(url);
+    } else {
+      var _postCfg = {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        transformRequest: function (d) {
+          return $.param(d, true);
+        }
+      };
+      return $http.post(url, param, _postCfg);
+    }
+  }
+
+  var api = {
+    //退出登录
+    _logup: function (param, type) {
+      return serverAction($rootScope.ctxPath + '/web/userlogin/logout', param, type);
+    },
+    //用户登录
+    _loginQQ: function (param, type) {
+      return serverAction($rootScope.ctxPath + '/web/userlogin/qq/login', param, type);
+    },
+    //用户信息
+    _getUserInfo: function (param, type) {
+      return serverAction($rootScope.ctxPath + '/web/user/getUserInfoByUid', param, type);
+    }
+  }
+  console.log('server')
+  return api;
+}])
+
+/***/ })
+],[0]);

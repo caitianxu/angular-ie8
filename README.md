@@ -12,10 +12,12 @@ src   主目录
     - json 模拟接口文件
     - lib 静态引用的框架和组件
     - views 业务模块
-    - public.css 公共样式文件
-    - reset.css 网页重置样式文件
     - main.js webpack工程入口文件
     - main.html html模版文件
+    
+css
+    -public.css 公共样式文件
+    - reset.css 网页重置样式文件
 
 dist 生产内容
 

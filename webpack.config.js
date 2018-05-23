@@ -59,7 +59,7 @@ var config = {
 };
 if (isDev) {
   config.devServer = {
-    port: 8000,
+    port: 8888,
     host: '0.0.0.0'
   };
 }

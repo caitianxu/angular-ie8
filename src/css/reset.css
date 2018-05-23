@@ -69,7 +69,8 @@ h6,
 p,
 li {
   margin: 0;
-  font-weight: 500
+  font-weight: 500;
+  list-style: none;
 }
 
 abbr[data-original-title],
@@ -97,8 +98,7 @@ textarea {
 dl,
 ol,
 ul {
-  margin-top: 0;
-  margin-bottom: 1em
+  margin:0
 }
 
 ol ol,

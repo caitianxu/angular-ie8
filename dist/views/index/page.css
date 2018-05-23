@@ -1,0 +1,53 @@
+.index-page .header-form{
+  padding: 50px;
+}
+.index-page .header-form input{
+  width: 100%;
+  border: 1px #c5c8ca solid;
+  height: 50px;
+  padding: 15px 30px;
+  line-height: 20px;
+  font-size: 24px;
+  border-radius: 30px;
+}
+.index-page .data-title{
+  width: 100%;
+  height: 50px;
+  border-top: 2px #ddd solid;
+}
+.index-page .data-title a{
+  float: left;
+  width: 33.3333%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+}
+.index-page .data-title a.active{
+  color: #ff0000;
+  font-weight: bold;
+}
+.index-page .data-list li{
+  height: 50px;
+  border-top: 1px #ddd dashed;
+  line-height: 50px;
+  display: inline-block;
+  width: 100%;
+}
+.index-page .data-list li a{
+  float: left;
+  width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.index-page .data-list li label{
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  width: 30%;
+  color: #f90;
+}
+.index-page .data-list li.end *{
+  color: #bbb;
+  text-decoration: line-through;
+}

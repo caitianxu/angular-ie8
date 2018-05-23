@@ -1,7 +1,9 @@
 window.myApp = angular.module("app", ["myDirectives", "myServices", "oc.lazyLoad", "ui.router"]);
-myApp.run(["$rootScope", "services", "$sce",
-  function ($rootScope, services, $sce) {
+myApp.run(["$rootScope", "services", "$sce", "pop",
+  function ($rootScope, services, $sce, pop) {
     console.log('run')
+    //自定义组件
+    $rootScope.pop = pop;
     //全局公共变量
     $rootScope.isPro = PRODUCTION;
     $rootScope.ctxPath = PRODUCTION ? '' : '';
@@ -9,7 +11,9 @@ myApp.run(["$rootScope", "services", "$sce",
     $rootScope.uid = null;
     $rootScope.LoginUser = null;
     //开始加载新页面
-    $rootScope.$on("$stateChangeStart", function (event, toState, fromState, fromParams) {console.log(toState)});
+    $rootScope.$on("$stateChangeStart", function (event, toState, fromState, fromParams) {
+      console.log('load success:' + toState.name)
+    });
     //页面加载成功
     $rootScope.$on("$stateChangeSuccess", function (event, toState, toParams, fromState, fromParams) {});
     //页面加载失败
