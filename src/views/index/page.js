@@ -51,7 +51,4 @@ myApp.controller("indexController", function ($rootScope, $scope, services, $tim
       return item.state === $scope.param.type
     }
   }
-  
-  $scope.showBox = true;
-  // $rootScope.pop.alert('提示', '你进入了首页数据列表!')
 })

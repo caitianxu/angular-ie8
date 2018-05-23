@@ -85,7 +85,7 @@
 }
 
 .ng-pop-close {
-  width: 42px;
+  width: 30px;
   height: 42px;
   float: right;
   font-size: 18px;
@@ -196,6 +196,7 @@
   min-width: 30px;
   height: 100%;
   display: inline-block;
+  background-image: url('/images/all.png');
 }
 .icon-close{
   background-position: -185px -63px;
