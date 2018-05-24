@@ -8,11 +8,11 @@ var ExtractPlugin = require('extract-text-webpack-plugin');
 var config = {
   target: 'web',
   entry: {
-    app: path.join(__dirname, './src/main.js')
+    app: path.resolve(__dirname, './src/main.js')
   },
   output: {
     filename: '[name].[hash:5].js',
-    path: path.join(__dirname, './dist')
+    path: path.resolve(__dirname, './dist')
   },
   plugins: [
     new webpack.DefinePlugin({

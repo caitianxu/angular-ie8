@@ -31,15 +31,15 @@ angular.module("myServices", []).factory('services', ['$http', '$rootScope', fun
   var api = {
     //退出登录
     _logup: function (param, type) {
-      return serverAction($rootScope.ctxPath + '/web/userlogin/logout', param, type);
+      return serverAction($rootScope.ctxPath + '/logout', param, type);
     },
     //用户登录
     _loginQQ: function (param, type) {
-      return serverAction($rootScope.ctxPath + '/web/userlogin/qq/login', param, type);
+      return serverAction($rootScope.ctxPath + '/login', param, type);
     },
     //用户信息
     _getUserInfo: function (param, type) {
-      return serverAction($rootScope.ctxPath + '/web/user/getUserInfoByUid', param, type);
+      return serverAction($rootScope.ctxPath + '/getUserInfoByUid', param, type);
     }
   }
   console.log('server')
