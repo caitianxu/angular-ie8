@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build:client": "cross-env NODETYPE=1 webpack --config webpack.config.js",
-    "build": "npm run clean && npm run build:client",
+    "build": "npm run clean && npm run build:client && node lib/compress.js",
     "dev": "cross-env NODETYPE=0 webpack-dev-server --config webpack.config.js"
   },
   "author": "Henry.Cai",

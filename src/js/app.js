@@ -58,7 +58,7 @@ myApp.config(["$stateProvider", "$urlRouterProvider", "$controllerProvider", "$c
         loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
           return $ocLazyLoad.load([
             "./views/index/page.css",
-            "./views/index/page.js"
+            "./views/index/page.min.js"
           ])
         }]
       }
@@ -72,7 +72,7 @@ myApp.config(["$stateProvider", "$urlRouterProvider", "$controllerProvider", "$c
         loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
           return $ocLazyLoad.load([
             "./views/info/page.css",
-            "./views/info/page.js"
+            "./views/info/page.min.js"
           ])
         }]
       }
