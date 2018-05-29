@@ -35,55 +35,57 @@ myApp.controller("mainController", [
 ]);
 
 //路由配置
-myApp.config(function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
-  console.log('config')
-  myApp.controller = $controllerProvider.register;
-  myApp.directive = $compileProvider.directive;
-  myApp.filter = $filterProvider.register;
-  myApp.factory = $provide.factory;
-  myApp.service = $provide.service;
-  myApp.constant = $provide.constant;
+myApp.config(["$stateProvider", "$urlRouterProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide",
+  function ($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
+    myApp.controller = $controllerProvider.register;
+    myApp.directive = $compileProvider.directive;
+    myApp.filter = $filterProvider.register;
+    myApp.factory = $provide.factory;
+    myApp.service = $provide.service;
+    myApp.constant = $provide.constant;
+    console.log('config')
 
-  //默认页面
-  $urlRouterProvider.when("", "/index");
-  //不规则页面
-  $urlRouterProvider.otherwise("/error");
-  //首页
-  $stateProvider.state("index", {
-    url: "/index",
-    templateUrl: "./views/index/page.html",
-    controller: "indexController",
-    resolve: {
-      loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
-        return $ocLazyLoad.load([
-          "./views/index/page.css",
-          "./views/index/page.js"
-        ])
-      }]
-    }
-  });
-  //详情页
-  $stateProvider.state("info", {
-    url: "/info/:id&:name",
-    templateUrl: "./views/info/page.html",
-    controller: "infoController",
-    resolve: {
-      loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
-        return $ocLazyLoad.load([
-          "./views/info/page.css",
-          "./views/info/page.js"
-        ])
-      }]
-    }
-  });
-  //错误页
-  $stateProvider.state("error", {
-    url: "/error",
-    templateUrl: "./views/error/page.html",
-    resolve: {
-      loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
-        return $ocLazyLoad.load(["./views/error/page.css"])
-      }]
-    }
-  });
-});
+    //默认页面
+    $urlRouterProvider.when("", "/index");
+    //不规则页面
+    $urlRouterProvider.otherwise("/error");
+    //首页
+    $stateProvider.state("index", {
+      url: "/index",
+      templateUrl: "./views/index/page.html",
+      controller: "indexController",
+      resolve: {
+        loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
+          return $ocLazyLoad.load([
+            "./views/index/page.css",
+            "./views/index/page.js"
+          ])
+        }]
+      }
+    });
+    //详情页
+    $stateProvider.state("info", {
+      url: "/info/:id&:name",
+      templateUrl: "./views/info/page.html",
+      controller: "infoController",
+      resolve: {
+        loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
+          return $ocLazyLoad.load([
+            "./views/info/page.css",
+            "./views/info/page.js"
+          ])
+        }]
+      }
+    });
+    //错误页
+    $stateProvider.state("error", {
+      url: "/error",
+      templateUrl: "./views/error/page.html",
+      resolve: {
+        loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
+          return $ocLazyLoad.load(["./views/error/page.css"])
+        }]
+      }
+    });
+  }
+]);

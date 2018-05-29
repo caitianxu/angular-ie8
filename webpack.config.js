@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var isDev = process.env.NODETYPE === '0';
 var ExtractPlugin = require('extract-text-webpack-plugin');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 var config = {
   target: 'web',
@@ -40,7 +41,15 @@ var config = {
     //单独输出css
     new ExtractPlugin("[name].[hash:5].css"),
     //单独输出webpack配置
-    new webpack.optimize.CommonsChunkPlugin("vendor")
+    new webpack.optimize.CommonsChunkPlugin("vendor"),
+    //输出js文件压缩
+    new UglifyJSPlugin({
+      uglifyOptions:{
+        output: {
+          ie8: true
+        }
+      }
+    })
   ],
   module: {
     rules: [{

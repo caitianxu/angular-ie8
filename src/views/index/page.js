@@ -1,5 +1,6 @@
-myApp.controller("indexController", function ($rootScope, $scope, services, $timeout, $state) {
-  console.log('this is index page')
+myApp.controller("indexController", ["$rootScope", "$scope", "services", "$timeout", "$state", 
+function ($rootScope, $scope, services, $timeout, $state) {
+  
   services["_data_list_json"] = function (param, type) {
     return $rootScope.serverAction('http://react-china.org/top.json', param, type);
   }
@@ -51,4 +52,4 @@ myApp.controller("indexController", function ($rootScope, $scope, services, $tim
       return item.state === $scope.param.type
     }
   }
-})
+}])
