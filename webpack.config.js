@@ -22,8 +22,8 @@ var config = {
     //使用html模板
     new HtmlWebpackPlugin({
       template: './src/main.html',
-      minify: { 
-        removeComments: true, 
+      minify: {
+        removeComments: true,
         collapseWhitespace: true
       }
     }),
@@ -39,17 +39,7 @@ var config = {
       to: 'views'
     }]),
     //单独输出css
-    new ExtractPlugin("[name].[hash:5].css"),
-    //单独输出webpack配置
-    new webpack.optimize.CommonsChunkPlugin("vendor"),
-    //输出js文件压缩
-    new UglifyJSPlugin({
-      uglifyOptions:{
-        output: {
-          ie8: true
-        }
-      }
-    })
+    new ExtractPlugin("[name].[hash:5].css")
   ],
   module: {
     rules: [{
@@ -59,7 +49,7 @@ var config = {
         use: [{
           loader: "css-loader",
           options: {
-            minimize: true
+            minimize: isDev ? false : true
           }
         }]
       })
@@ -71,5 +61,17 @@ if (isDev) {
     port: 8888,
     host: '0.0.0.0'
   };
+}
+else{
+  //单独输出webpack配置
+  config.plugins.push(new webpack.optimize.CommonsChunkPlugin("vendor"));
+  //输出js文件压缩
+  config.plugins.push(new UglifyJSPlugin({
+    uglifyOptions: {
+      output: {
+        ie8: true
+      }
+    }
+  }));
 }
 module.exports = config;

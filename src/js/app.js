@@ -57,8 +57,8 @@ myApp.config(["$stateProvider", "$urlRouterProvider", "$controllerProvider", "$c
       resolve: {
         loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
           return $ocLazyLoad.load([
-            "./views/index/page.css",
-            "./views/index/page.min.js"
+            PRODUCTION ? "./views/index/page.min.css" : "./views/index/page.css",
+            PRODUCTION ? "./views/index/page.min.js" : "./views/index/page.js"
           ])
         }]
       }
@@ -71,8 +71,8 @@ myApp.config(["$stateProvider", "$urlRouterProvider", "$controllerProvider", "$c
       resolve: {
         loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
           return $ocLazyLoad.load([
-            "./views/info/page.css",
-            "./views/info/page.js"
+            PRODUCTION ? "./views/info/page.min.css" : "./views/info/page.css",
+            PRODUCTION ? "./views/info/page.min.js" : "./views/info/page.js"
           ])
         }]
       }
@@ -83,7 +83,9 @@ myApp.config(["$stateProvider", "$urlRouterProvider", "$controllerProvider", "$c
       templateUrl: "./views/error/page.html",
       resolve: {
         loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
-          return $ocLazyLoad.load(["./views/error/page.css"])
+          return $ocLazyLoad.load([
+            PRODUCTION ? "./views/error/page.min.css" : "./views/error/page.css"
+          ])
         }]
       }
     });
