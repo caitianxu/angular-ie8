@@ -72,7 +72,7 @@ myApp.config(["$stateProvider", "$urlRouterProvider", "$controllerProvider", "$c
         loadMyCtrl: ["$ocLazyLoad", function ($ocLazyLoad) {
           return $ocLazyLoad.load([
             "./views/info/page.css",
-            "./views/info/page.min.js"
+            "./views/info/page.js"
           ])
         }]
       }

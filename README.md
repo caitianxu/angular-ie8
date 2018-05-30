@@ -22,6 +22,7 @@ css
 dist 生产内容
 
 webpack.config.js  工程配置文件
+compress.js        独立压缩业务模块js，css文件配置
 ```
 
 
